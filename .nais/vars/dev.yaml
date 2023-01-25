@@ -1,0 +1,5 @@
+ingress:
+  - https://tiltakspenger-admin.dev.intern.nav.no
+envs:
+  - name: TILTAKSPENGER_VEDTAK_URL
+    value: https://tiltakspenger-vedtak.dev.intern.nav.no
