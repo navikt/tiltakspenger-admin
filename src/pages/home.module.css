@@ -1,0 +1,9 @@
+.main_content {
+    display: flex;
+    justify-content: center;
+    margin: 4rem 0;
+}
+
+.container {
+    width: 1280px;
+}
