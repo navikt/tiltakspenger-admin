@@ -1,7 +1,7 @@
 ingress:
   - https://tiltakspenger-admin.dev.intern.nav.no
 replyURLs:
-  - https://tiltakspenger-saksbehandler.dev.intern.nav.no/oauth2/callback
+  - https://tiltakspenger-admin.dev.intern.nav.no/oauth2/callback
 tenant: trygdeetaten.no
 envs:
   - name: TILTAKSPENGER_VEDTAK_URL
