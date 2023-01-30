@@ -28,13 +28,5 @@ spec:
       enabled: true
       tenant: {{ tenant }}
       claims:
-        # groups:
-        #   - id: {{ ROLE_SAKSBEHANDLER }}
-        # extra:
-        #   - "NAVident"
-      {{#if replyUrls}}
-        replyURLs:
-        {{#each replyUrls}}
-          - {{ this }}
-        {{/each}}
-      {{/if}}
+        groups:
+          - id: {{ ROLE_TPTS }}
