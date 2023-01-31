@@ -9,6 +9,8 @@ import {
     StatLabel,
     StatNumber,
     CardFooter,
+    Center,
+    Spinner,
 } from '@chakra-ui/react';
 
 export type SectionStat = { [key: string]: string };
@@ -16,14 +18,20 @@ export type SectionStat = { [key: string]: string };
 interface SectionProps extends React.PropsWithChildren {
     label: string;
     stats?: SectionStat;
+    isLoading: boolean;
 }
 
-function Section({ label, stats, children }: SectionProps) {
+function Section({ label, stats, children, isLoading }: SectionProps) {
     return (
         <Card my="4">
             <CardHeader>
                 <Heading>{label}</Heading>
             </CardHeader>
+            {isLoading && (
+                <Center>
+                    <Spinner />
+                </Center>
+            )}
             {stats && (
                 <CardBody>
                     <StatGroup>
