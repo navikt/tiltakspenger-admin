@@ -1,7 +1,10 @@
-type SimpleResponse = {
-  status: number;
-  content: string;
-  body: string;
+export type SimpleResponse = {
+    status: number;
+    content: string;
+    body: string;
 };
 
-export default SimpleResponse;
+export type Innsendinger = {
+    feilet: string;
+    stoppet: string;
+};

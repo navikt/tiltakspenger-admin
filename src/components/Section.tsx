@@ -1,3 +1,4 @@
+import { capitalizeFirst } from '../utils/general';
 import {
     Card,
     CardHeader,
@@ -10,11 +11,11 @@ import {
     CardFooter,
 } from '@chakra-ui/react';
 
-export type SectionStat = { label: string; value: string };
+export type SectionStat = { [key: string]: string };
 
 interface SectionProps extends React.PropsWithChildren {
     label: string;
-    stats?: SectionStat[];
+    stats?: SectionStat;
 }
 
 function Section({ label, stats, children }: SectionProps) {
@@ -26,10 +27,10 @@ function Section({ label, stats, children }: SectionProps) {
             {stats && (
                 <CardBody>
                     <StatGroup>
-                        {stats.map((stat, index) => (
+                        {Object.entries(stats).map((stat, index) => (
                             <Stat key={index}>
-                                <StatLabel>{stat.label}</StatLabel>
-                                <StatNumber>{stat.value}</StatNumber>
+                                <StatLabel>{capitalizeFirst(stat[0])}</StatLabel>
+                                <StatNumber>{stat[1]}</StatNumber>
                             </Stat>
                         ))}
                     </StatGroup>

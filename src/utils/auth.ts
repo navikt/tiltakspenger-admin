@@ -1,4 +1,4 @@
-import SimpleResponse from '../types';
+import { SimpleResponse } from '../types';
 import { NextApiRequest } from 'next';
 
 const clientId = process.env.AZURE_APP_CLIENT_ID || '';

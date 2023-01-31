@@ -1,4 +1,4 @@
-import SimpleResponse from '../../types';
+import { SimpleResponse } from '../../types';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getToken } from '../../utils/auth';
 import logger from '../../utils/serverLogger';
