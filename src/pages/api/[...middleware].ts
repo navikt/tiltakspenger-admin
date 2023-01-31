@@ -1,7 +1,7 @@
 import SimpleResponse from '../../types';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getToken } from '../../utils/auth';
-// import logger from '../../utils/serverLogger';
+import logger from '../../utils/serverLogger';
 
 const backendUrl = process.env.TILTAKSPENGER_VEDTAK_URL || '';
 
@@ -12,7 +12,7 @@ function getUrl(req: NextApiRequest): string {
 
 async function makeApiRequest(request: NextApiRequest, oboToken: string): Promise<Response> {
     const url = getUrl(request);
-    // logger.info(`Making request to ${url}`);
+    logger.info(`Making request to ${url}`);
     return await fetch(url, {
         method: request.method,
         body: request.method === 'GET' ? undefined : request.body,
@@ -29,7 +29,7 @@ export async function middleware(request: NextApiRequest, response: NextApiRespo
         oboToken = await getToken(request);
     } catch (error: any) {
         const simpleResponse = error as SimpleResponse;
-        // logger.error('Bruker har ikke tilgang, kall mot Azure feilet', error);
+        logger.error('Bruker har ikke tilgang, kall mot Azure feilet', error);
         response.status(simpleResponse.status).json({ message: 'Bruker har ikke tilgang' });
     }
     if (oboToken) {
@@ -43,7 +43,7 @@ export async function middleware(request: NextApiRequest, response: NextApiRespo
                 response.status(res.status).json({ error: !error ? res.statusText : error });
             }
         } catch (error) {
-            // logger.error('Fikk ikke kontakt med APIet, returnerer 502', error);
+            logger.error('Fikk ikke kontakt med APIet, returnerer 502', error);
             response.status(502).json({ message: 'Bad Gateway' });
         }
     }

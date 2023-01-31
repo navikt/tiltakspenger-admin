@@ -1,19 +1,21 @@
-import { BodyLong, Button, Heading, Panel } from "@navikt/ds-react";
-import styles from "./home.module.css";
+import { Button } from '@chakra-ui/react';
+import Section, { SectionStat } from '../components/Section';
 
-export default function Home() {
-  return (
-    <main className={styles.main_content}>
-      <div className={styles.container}>
-        <Panel border>
-          <Heading spacing level="2" size="large">
-            Innsendinger
-          </Heading>
-          <BodyLong>
-            <Button>Resett feilede</Button>
-          </BodyLong>
-        </Panel>
-      </div>
-    </main>
-  );
+function Home() {
+    const dummyStats: SectionStat[] = [
+        { label: 'Feilet', value: '3' },
+        { label: 'Stoppet', value: '5' },
+    ];
+    const handleResettInnsendinger = async () => {
+        await fetch('/api/innsendinger/resett/feiletogstoppet', { method: 'POST' }).then((res) => console.log(res));
+    };
+    return (
+        <Section label="Innsendinger" stats={dummyStats}>
+            <Button onClick={handleResettInnsendinger} colorScheme="blue" size="lg">
+                Resett
+            </Button>
+        </Section>
+    );
 }
+
+export default Home;
