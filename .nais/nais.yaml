@@ -29,4 +29,4 @@ spec:
       tenant: {{ tenant }}
       claims:
         groups:
-          - id: {{ ROLE_TPTS }}
+          - id: {{ ROLE_ADMIN }}
