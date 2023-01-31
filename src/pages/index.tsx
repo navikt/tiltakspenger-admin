@@ -2,7 +2,7 @@ import { Button } from '@chakra-ui/react';
 import Section, { SectionStat } from '../components/Section';
 import useSWR from 'swr';
 import fetcher from '../utils/http';
-import { Innsendinger } from '@/types';
+import { Innsendinger } from '../types';
 
 function Home() {
     const { data, error, isLoading } = useSWR<Innsendinger>('/api/innsendinger/feiletogstoppet', fetcher);
