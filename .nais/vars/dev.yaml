@@ -4,7 +4,7 @@ tenant: trygdeetaten.no
 ROLE_ADMIN: c511113e-5b22-49e7-b9c4-eeb23b01f518 
 envs:
   - name: TILTAKSPENGER_VEDTAK_URL
-    value: https://tiltakspenger-vedtak.intern.dev.nav.no
+    value: http://tiltakspenger-vedtak
   - name: AUTH_PROVIDER_URL
     value: https://login.microsoftonline.com/966ac572-f5b7-4bbe-aa88-c76419c0f851/oauth2/v2.0/token
   - name: SCOPE
